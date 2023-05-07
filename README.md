@@ -2,7 +2,9 @@
 
 ## Preparar ambiente local
 
-- Crear un archivo llamado `.env` en la raíz del proyecto. Puede usar el archivo `.env.example` como base. Puede dejar los valores por defecto el servidor serverless corre en el puerto por defecto 3000, caso contrario, deberá colocar la url correspondiente.
+- Crear un archivo llamado `.env` en la raíz del proyecto. Puede usar el archivo `.env.example` como base. Puede dejar los valores por defecto. El servidor serverless corre en el puerto por defecto 3000, caso contrario, deberá reemplazar por la url correspondiente.
+
+- Inicializar el servidor backend (INSTRUCCIONES -> https://github.com/joseaki/card-tokenization-api)
 
 ## Ejecutar en ambiente local
 
