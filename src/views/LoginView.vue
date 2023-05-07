@@ -54,7 +54,7 @@ const handleLogin = async () => {
               :loading="isLoading"
               :disabled="!(username && password) || isLoading"
             >
-              Iniciar sesión
+              INICIAR SESIÓN
             </PrimaryButton>
           </div>
         </form>
