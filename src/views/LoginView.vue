@@ -15,16 +15,19 @@ const username = ref('commerce_a')
 const password = ref('admin')
 
 const handleLogin = async () => {
-  isLoading.value = true
-  const resp = await login(username.value, password.value)
-  if (resp.data?.token) {
-    localStorage.setItem('token', resp.data.token)
-    router.push('/createToken')
+  try {
+    isLoading.value = true
+    const resp = await login(username.value, password.value)
+    if (resp.data?.token) {
+      localStorage.setItem('token', resp.data.token)
+      router.push('/createToken')
+      isLoading.value = false
+    }
+  } catch (error: any) {
+    errorMessage.value = error.response.data.message
+  } finally {
     isLoading.value = false
-    return
   }
-  errorMessage.value = resp.message ?? 'Datos inválidos, vuelve a intentarlo.'
-  isLoading.value = false
 }
 </script>
 
