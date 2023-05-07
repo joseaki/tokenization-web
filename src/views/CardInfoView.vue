@@ -18,6 +18,10 @@ const logoUrl = ref('/images/unknown.svg')
 const cardInfo = ref<ICardInfoResponse | undefined>(undefined)
 
 const handleSubmit = async () => {
+  if (cardToken.value.length < 16) {
+    errorMessage.value = 'Token debe tener 16 caracteres'
+    return
+  }
   try {
     cardInfo.value = undefined
     logoUrl.value = '/images/unknown.svg'
