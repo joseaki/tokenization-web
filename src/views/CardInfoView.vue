@@ -14,13 +14,13 @@ const cardToken = ref('')
 const errorMessage = ref('')
 const isLoading = ref(false)
 const cardMask = ref('')
-const logoUrl = ref('src/assets/unknown.svg')
+const logoUrl = ref('public/images/unknown.svg')
 const cardInfo = ref<ICardInfoResponse | undefined>(undefined)
 
 const handleSubmit = async () => {
   try {
     cardInfo.value = undefined
-    logoUrl.value = 'src/assets/unknown.svg'
+    logoUrl.value = 'public/images/unknown.svg'
     isLoading.value = true
     const resp = await getCardInfo(cardToken.value)
     if (resp.data) {
@@ -29,22 +29,22 @@ const handleSubmit = async () => {
       cardMask.value = CARD_MASK[ccType ?? 'VISA']
       switch (ccType) {
         case CC.VISA:
-          logoUrl.value = 'src/assets/visa.svg'
+          logoUrl.value = 'public/images/visa.svg'
           break
         case CC.MASTERCARD:
-          logoUrl.value = 'src/assets/mastercard.svg'
+          logoUrl.value = 'public/images/mastercard.svg'
           break
         case CC.AMEX:
-          logoUrl.value = 'src/assets/amex.svg'
+          logoUrl.value = 'public/images/amex.svg'
           break
         case CC.DINERS:
-          logoUrl.value = 'src/assets/diners.svg'
+          logoUrl.value = 'public/images/diners.svg'
           break
         case CC.DISCOVER:
-          logoUrl.value = 'src/assets/discover.svg'
+          logoUrl.value = 'public/images/discover.svg'
           break
         default:
-          logoUrl.value = 'src/assets/unknown.svg'
+          logoUrl.value = 'public/images/unknown.svg'
           break
       }
     }
@@ -62,16 +62,18 @@ const handleSubmit = async () => {
       class="relative flex flex-col justify-center p-4 bg-light-300 rounded-lg w-screen sm:w-[28rem] h-60 sm:p-10"
     >
       <div class="pt-16">
-        <P class="font-semibold text-2xl [word-spacing:0.5rem]">{{
-          cardInfo?.card_number
-            ? maskString(cardInfo?.card_number.toString(), cardMask, { X: /[0-9]/ })
-            : 'XXXX XXXX XXXX XXXX'
-        }}</P>
-        <P class="align-center text-lg pt-4"
-          >Vence {{ cardInfo?.expiration_month ?? 'XX' }}/{{
+        <p class="font-semibold text-2xl [word-spacing:0.5rem]">
+          {{
+            cardInfo?.card_number
+              ? maskString(cardInfo?.card_number.toString(), cardMask, { X: /[0-9]/ })
+              : 'XXXX XXXX XXXX XXXX'
+          }}
+        </p>
+        <P class="align-center text-lg pt-4">
+          Vence {{ cardInfo?.expiration_month ?? 'XX' }}/{{
             cardInfo?.expiration_year.substring(2) ?? 'XX'
-          }}</P
-        >
+          }}
+        </P>
       </div>
       <div class="absolute bottom-0 right-0 pb-2 pr-4">
         <img alt="logo tarjeta" :src="logoUrl" width="70" height="50" />

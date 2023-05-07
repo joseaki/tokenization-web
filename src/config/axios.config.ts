@@ -6,7 +6,7 @@ export const axiosClient = axios.create({
 
 axiosClient.interceptors.request.use(
   function (config) {
-    config.headers.set('Authorization', localStorage.getItem('token'))
+    config.headers.set('authorization', localStorage.getItem('token'))
     return config
   },
   function (error) {
