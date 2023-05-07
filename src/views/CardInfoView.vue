@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import TextInput from '@/components/atoms/TextInput.vue'
 import PrimaryButton from '@/components/atoms/PrimaryButton.vue'
+import MainLayout from '@/components/templates/MainLayout.vue'
 import { getCardInfo } from '@/services/card.service'
 import { maskString } from '@/lib/stringMethods'
 
@@ -56,7 +57,7 @@ const handleSubmit = async () => {
 </script>
 
 <template>
-  <main class="grid place-content-center pt-6">
+  <MainLayout>
     <div
       class="relative flex flex-col justify-center p-4 bg-light-300 rounded-lg w-screen sm:w-[28rem] h-60 sm:p-10"
     >
@@ -100,5 +101,5 @@ const handleSubmit = async () => {
         <RouterLink to="/createToken" class="text-accent-300">acá</RouterLink>
       </p>
     </div>
-  </main>
+  </MainLayout>
 </template>

@@ -3,6 +3,7 @@ import { RouterLink } from 'vue-router'
 import TextInput from '@/components/atoms/TextInput.vue'
 import PrimaryButton from '@/components/atoms/PrimaryButton.vue'
 import IconButton from '@/components/atoms/IconButton.vue'
+import MainLayout from '@/components/templates/MainLayout.vue'
 import { ref } from 'vue'
 import type { TextInputEvent } from '@/interfaces/common.types'
 import { maskString } from '@/lib/stringMethods'
@@ -112,7 +113,7 @@ const copyTextToClipboard = async () => {
 </script>
 
 <template>
-  <main class="h-screen grid place-content-center">
+  <MainLayout>
     <div class="text-primary-300 px-4 sm:px-10">
       <RouterLink to="/cardInfo">Obtener información de la tarjeta</RouterLink>
     </div>
@@ -198,5 +199,5 @@ const copyTextToClipboard = async () => {
         <RouterLink to="/cardInfo">Obtener información de la tarjeta</RouterLink>
       </div>
     </div>
-  </main>
+  </MainLayout>
 </template>
