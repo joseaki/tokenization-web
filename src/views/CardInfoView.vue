@@ -14,13 +14,13 @@ const cardToken = ref('')
 const errorMessage = ref('')
 const isLoading = ref(false)
 const cardMask = ref('')
-const logoUrl = ref('public/images/unknown.svg')
+const logoUrl = ref('/images/unknown.svg')
 const cardInfo = ref<ICardInfoResponse | undefined>(undefined)
 
 const handleSubmit = async () => {
   try {
     cardInfo.value = undefined
-    logoUrl.value = 'public/images/unknown.svg'
+    logoUrl.value = '/images/unknown.svg'
     isLoading.value = true
     const resp = await getCardInfo(cardToken.value)
     if (resp.data) {
@@ -29,22 +29,22 @@ const handleSubmit = async () => {
       cardMask.value = CARD_MASK[ccType ?? 'VISA']
       switch (ccType) {
         case CC.VISA:
-          logoUrl.value = 'public/images/visa.svg'
+          logoUrl.value = '/images/visa.svg'
           break
         case CC.MASTERCARD:
-          logoUrl.value = 'public/images/mastercard.svg'
+          logoUrl.value = '/images/mastercard.svg'
           break
         case CC.AMEX:
-          logoUrl.value = 'public/images/amex.svg'
+          logoUrl.value = '/images/amex.svg'
           break
         case CC.DINERS:
-          logoUrl.value = 'public/images/diners.svg'
+          logoUrl.value = '/images/diners.svg'
           break
         case CC.DISCOVER:
-          logoUrl.value = 'public/images/discover.svg'
+          logoUrl.value = '/images/discover.svg'
           break
         default:
-          logoUrl.value = 'public/images/unknown.svg'
+          logoUrl.value = '/images/unknown.svg'
           break
       }
     }

@@ -5,12 +5,10 @@ const props = defineProps(['label', 'placeholder', 'modelValue'])
 defineEmits(['update:modelValue'])
 
 const showPassword = ref(false)
-const passwordPicture = ref('/public/images/eye.svg')
+const passwordPicture = ref('/images/eye.svg')
 
 const handlePasswordClick = () => {
-  passwordPicture.value = showPassword.value
-    ? '/public/images/eye.svg'
-    : '/public/images/eyeClosed.svg'
+  passwordPicture.value = showPassword.value ? '/images/eye.svg' : '/images/eyeClosed.svg'
   showPassword.value = !showPassword.value
 }
 </script>

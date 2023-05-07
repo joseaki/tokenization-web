@@ -32,7 +32,7 @@ const handleLogin = async () => {
   <main class="h-screen grid place-content-center">
     <div class="flex h-screen w-screen flex-col p-4 sm:h-auto sm:w-[28rem] sm:bg-light-100 sm:p-10">
       <div class="mb-16 flex justify-center sm:mb-6">
-        <img alt="culqi logo" src="public/images/logo.svg" width="120" height="125" />
+        <img alt="culqi logo" src="/images/logo.svg" width="120" height="125" />
       </div>
       <div>
         <form class="w-full">
