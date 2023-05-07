@@ -24,6 +24,7 @@ const handleSubmit = async () => {
   }
   try {
     cardInfo.value = undefined
+    errorMessage.value = ''
     logoUrl.value = '/images/unknown.svg'
     isLoading.value = true
     const resp = await getCardInfo(cardToken.value)
